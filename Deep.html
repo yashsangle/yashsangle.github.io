@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Support</title>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #4285f4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        
+        p {
+            line-height: 1.6;
+        }
+        
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: Google Sans;
+            --df-messenger-chat-background: #f3f6fc;
+            --df-messenger-message-user-background: #d3e3fd;
+            --df-messenger-message-bot-background: #fff;
+            bottom: 16px;
+            right: 16px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Support Center</h1>
+        <p>Get instant help from our virtual assistant</p>
+    </header>
+    
+    <div class="container">
+        <h2>How can we help you today?</h2>
+        <p>Our AI assistant is available 24/7 to answer your questions. Click the chat icon in the bottom right corner to start a conversation.</p>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li>How do I reset my password?</li>
+            <li>What are your business hours?</li>
+            <li>Where can I find documentation?</li>
+            <li>How do I contact support?</li>
+        </ul>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+    </footer>
+
+    <!-- Dialogflow CX Chatbot -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      location="us-central1"
+      project-id="zinc-cooler-452600-r7"
+      agent-id="2a2aeafe-68df-4a6f-af47-aa7bb151b416"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat-bubble
+        chat-title="UOPBAgent">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+</body>
+</html>
