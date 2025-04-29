@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOPB - Data Automation Portal</title>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --uopb-blue: #00205B;
+            --uopb-gold: #FFD700;
+            --uopb-light-blue: #E6F0FA;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--uopb-blue);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        h1, h2, h3 {
+            color: var(--uopb-blue);
+        }
+        
+        h1 {
+            margin: 0.5rem 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            border-bottom: 2px solid var(--uopb-gold);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .hero {
+            background-color: var(--uopb-light-blue);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-pill {
+            background-color: var(--uopb-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--uopb-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Chatbot Styling */
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: 'Roboto', sans-serif;
+            --df-messenger-chat-background: #f3f6fc;
+            --df-messenger-message-user-background: #d3e3fd;
+            --df-messenger-message-bot-background: #fff;
+            --df-messenger-button-color: var(--uopb-blue);
+            bottom: 16px;
+            right: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--uopb-blue);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #003080;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Replace with actual UOPB logo -->
+        <div class="logo">[UOPB LOGO]</div>
+        <h1>University Office of Planning and Budgeting</h1>
+        <p>Data Automation & Analytics Portal</p>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h2>Project Overview</h2>
+            <p>The University Office of Planning and Budgeting (UOPB) has implemented an automated solution to transform manual data processes into efficient, AI-powered workflows. Our system eliminates manual PDF extraction and web data retrieval through advanced automation, providing instant access to institutional data through natural language queries.</p>
+            <a href="#features" class="btn">Explore Features</a>
+        </section>
+        
+        <section id="features">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Automated Data Extraction</h3>
+                    <p>Advanced PDF table extraction using Tabula and web data collection via Selenium eliminates manual data entry.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>BigQuery Data Warehouse</h3>
+                    <p>All institutional data is stored in Google BigQuery for fast querying and analysis with enterprise-grade security.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>AI-Powered Chatbot</h3>
+                    <p>Dialogflow CX chatbot provides natural language access to institutional data with contextual understanding.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Interactive Dashboards</h3>
+                    <p>Real-time visualization tools connected directly to live data sources for immediate insights.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-pill">Python (Pandas, Tabula, Selenium)</span>
+                <span class="tech-pill">Google BigQuery</span>
+                <span class="tech-pill">Google Cloud Platform</span>
+                <span class="tech-pill">Dialogflow CX</span>
+                <span class="tech-pill">Google Cloud Armor</span>
+                <span class="tech-pill">OAuth 2.0</span>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Security & Compliance</h2>
+            <ul>
+                <li>OAuth 2.0 authentication for all services</li>
+                <li>Data encryption at rest and in transit</li>
+                <li>Role-Based Access Control (RBAC)</li>
+                <li>Regular security audits and monitoring</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 University Office of Planning and Budgeting</p>
+        <p>Contact: <a href="mailto:bhapkar2@illinois.edu" style="color: var(--uopb-gold);">Project Manager</a></p>
+    </footer>
+
+    <!-- Dialogflow CX Chatbot -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      location="us-central1"
+      project-id="zinc-cooler-452600-r7"
+      agent-id="2a2aeafe-68df-4a6f-af47-aa7bb151b416"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat-bubble
+        chat-title="UOPB Data Assistant">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+</body>
+</html>
