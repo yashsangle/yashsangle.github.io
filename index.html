@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOPB - Data Automation Portal</title>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0a2463;
+            --secondary-blue: #3e92cc;
+            --light-blue: #d6f1ff;
+            --accent-blue: #1e88e5;
+            --dark-blue: #001845;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-blue);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% 100%;
+            opacity: 0.3;
+        }
+        
+        .logo-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            height: 80px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        h1 {
+            margin: 0.5rem 0;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            position: relative;
+            padding-bottom: 0.8rem;
+            margin: 3rem 0 1.5rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            margin: -4rem auto 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-top: 4px solid var(--accent-blue);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-pill {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tech-pill i {
+            font-size: 1rem;
+        }
+        
+        .visual-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+        
+        .visual-text {
+            flex: 1;
+        }
+        
+        .visual-image {
+            flex: 1;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            border-radius: 12px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .visual-image i {
+            font-size: 8rem;
+            color: var(--accent-blue);
+            opacity: 0.7;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 5rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--secondary-blue) 100%);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        /* Chatbot Styling */
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: 'Montserrat', sans-serif;
+            --df-messenger-chat-background: var(--light-gray);
+            --df-messenger-message-user-background: var(--light-blue);
+            --df-messenger-message-bot-background: var(--white);
+            --df-messenger-button-color: var(--accent-blue);
+            bottom: 24px;
+            right: 24px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(30, 136, 229, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 136, 229, 0.4);
+        }
+        
+        .btn i {
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .visual-section {
+                flex-direction: column;
+            }
+            
+            .hero {
+                margin-top: -2rem;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Header_Logo.PNG" alt="UOPB Logo" class="logo">
+            <h1>University Office of Planning and Budgeting</h1>
+            <p>Data Automation & Analytics Portal</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h2>Transform Data Into Insights</h2>
+            <p>Our AI-powered platform automates data processes and provides instant access to institutional analytics through natural language queries and interactive visualizations.</p>
+            <a href="#features" class="btn">
+                <i class="fas fa-rocket"></i> Explore Features
+            </a>
+        </section>
+        
+        <section id="features">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Chatbot</h3>
+                    <p>Natural language access to institutional data with contextual understanding through our Dialogflow CX assistant.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>BigQuery Integration</h3>
+                    <p>Enterprise-grade data warehouse with real-time analytics and secure access controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Automated ETL</h3>
+                    <p>Seamless extraction from PDFs and web sources with automated cleaning and transformation.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="visual-section">
+            <div class="visual-text">
+                <h2>Modern Data Architecture</h2>
+                <p>Our solution combines cutting-edge technologies to create a robust data pipeline that transforms raw information into actionable insights. The system automatically processes, cleans, and stores data for immediate access through multiple interfaces.</p>
+                <a href="#technologies" class="btn">
+                    <i class="fas fa-code"></i> View Technologies
+                </a>
+            </div>
+            <div class="visual-image">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+        </section>
+        
+        <section id="technologies">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-pill">
+                    <i class="fab fa-python"></i> Python
+                </span>
+                <span class="tech-pill">
+                    <i class="fas fa-cloud"></i> Google BigQuery
+                </span>
+                <span class="tech-pill">
+                    <i class="fab fa-google"></i> Google Cloud
+                </span>
+                <span class="tech-pill">
+                    <i class="fas fa-robot"></i> Dialogflow CX
+                </span>
+                <span class="tech-pill">
+                    <i class="fas fa-shield-alt"></i> Cloud Armor
+                </span>
+                <span class="tech-pill">
+                    <i class="fas fa-lock"></i> OAuth 2.0
+                </span>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <img src="Header_Logo.PNG" alt="UOPB Logo" class="logo" style="height: 60px; margin-bottom: 1.5rem;">
+            <div class="footer-links">
+                <a href="#">Documentation</a>
+                <a href="#">API Access</a>
+                <a href="mailto:bhapkar2@illinois.edu">Contact Support</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p>© 2023 University Office of Planning and Budgeting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Dialogflow CX Chatbot -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      location="us-central1"
+      project-id="zinc-cooler-452600-r7"
+      agent-id="2a2aeafe-68df-4a6f-af47-aa7bb151b416"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat-bubble
+        chat-title="UOPB Data Assistant">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+</body>
+</html>
